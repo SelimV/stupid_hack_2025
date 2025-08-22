@@ -17,6 +17,12 @@ document.addEventListener('DOMContentLoaded', async function() {
                     img.src = piece.dataURL;
                     img.alt = `Piece at row ${piece.row}, col ${piece.col}`;
                     rowDiv.appendChild(img);
+
+                    img.addEventListener('click', () => {
+                        // TODO: Handle piece click
+                        // For now, just log the piece's position
+                        console.log(`Clicked on piece at row ${piece.row}, col ${piece.col}`);
+                    });
                 }
                 captchaContainer.appendChild(rowDiv);
             }
