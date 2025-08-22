@@ -8,6 +8,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 5px;
+    width: 50%;
 }
 
 .captcha-row img {
