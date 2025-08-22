@@ -7,13 +7,23 @@
 .captcha-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 5px;
+    gap: 10px;
+    margin-bottom: 10px;
     width: 50%;
+    align-items: center;
 }
 
 .captcha-row img {
     width: 100%;
     height: auto;
     cursor: pointer;
-    border: 2px solid transparent;
+    z-index: 0;
+}
+
+.captcha-row img.selected {
+    width: 90%;
+    height: auto;
+    z-index: 1;
+    background-color: blue;
+    padding: 5%;
 }

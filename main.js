@@ -18,10 +18,12 @@ document.addEventListener('DOMContentLoaded', async function() {
                     img.alt = `Piece at row ${piece.row}, col ${piece.col}`;
                     rowDiv.appendChild(img);
 
-                    img.addEventListener('click', () => {
+                    img.addEventListener('click', (e) => {
                         // TODO: Handle piece click
                         // For now, just log the piece's position
                         console.log(`Clicked on piece at row ${piece.row}, col ${piece.col}`);
+                        
+                        img.classList.toggle('selected');
                     });
                 }
                 captchaContainer.appendChild(rowDiv);
