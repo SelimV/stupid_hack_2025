@@ -10,21 +10,29 @@
 
 <body>
   <div id="captcha-view">
-    <div id="captcha-prompt">
+    <div id="captcha-header">
       Select
-      <h2>a lever</h2>
+      <h1 id="captcha-prompt">a lever</h1>
+      then click submit
     </div>
     <div id="captcha-container"></div>
+    <div id="captcha-footer">
+      <p id="attribution-image">lorem ipsum</p>
+      <button id="button-submit">Submit</button>
+    </div>
   </div>
+
   <div id="intermission-view">
 
   </div>
+
   <div id="reward-view">
     <h1>For human eyes only</h1>
     <img src="assets/scandalous.jpg" alt="Scandalous ankle picture" width="500">
   </div>
 
-    <script src="captchas_data.js"></script>
-    <script type="module" src="main.js"></script>
-  </body>
+  <script src="captchas_data.js"></script>
+  <script type="module" src="main.js"></script>
+</body>
+
 </html>

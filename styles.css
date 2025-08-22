@@ -7,12 +7,17 @@ div {
     margin: auto;
 }
 
-#captcha-prompt {
+#captcha-header {
     width: auto;
     text-align: left;
     background-color: #4b90de;
     color: white;
-    padding: 2% 5%;
+    padding: 6%;
+}
+
+#captcha-prompt {
+    text-align: left;
+    font-weight: bolder;
 }
 
 #captcha-view {
@@ -40,4 +45,23 @@ div {
     z-index: 1;
     background-color: #4b90de;
     padding: 5%;
+}
+
+
+#captcha-footer {
+    display: flex;
+    align-items: start;
+}
+
+#attribution-image {
+    flex-grow: 1;
+}
+
+#button-submit {
+    background-color: #4b90de;
+    color: white;
+    border-color: #4b90de;
+    font-size: 150%;
+    padding: 0.5em 1em;
+    cursor: pointer;
 }
