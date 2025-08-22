@@ -9,3 +9,10 @@
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 5px;
 }
+
+.captcha-row img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
