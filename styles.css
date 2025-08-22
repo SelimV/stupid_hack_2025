@@ -1,0 +1,11 @@
+.captcha-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column for rows */
+    gap: 5px;
+}
+
+.captcha-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 5px;
+}
