@@ -3,6 +3,22 @@ import { Splitter } from './image_utils.js';
 // DEBUG: attach Splitter to the global window object for testing
 window.Splitter = Splitter;  
 
-document.addEventListener('DOMContentLoaded', function() {
-    // add any initialization code here
+document.addEventListener('DOMContentLoaded', async function() {
+    const captchaContainer = document.getElementById('captcha-container');
+
+    await Splitter.splitImage('assets/scandalous.jpg', 3, 3)
+        .then(pieces => {
+            for (const pieceRow of pieces) {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'captcha-row';
+                for (const piece of pieceRow) {
+                    // Create an image element for each piece
+                    const img = document.createElement('img');
+                    img.src = piece.dataURL;
+                    img.alt = `Piece at row ${piece.row}, col ${piece.col}`;
+                    rowDiv.appendChild(img);
+                }
+                captchaContainer.appendChild(rowDiv);
+            }
+        });
 });

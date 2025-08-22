@@ -16,6 +16,8 @@ export class Splitter {
         const pieces = [];
         
         for (let row = 0; row < rows; row++) {
+            const rowData = [];
+
             for (let col = 0; col < cols; col++) {
                 const canvas = document.createElement('canvas');
                 const ctx = canvas.getContext('2d');
@@ -31,13 +33,15 @@ export class Splitter {
                 );
                 ctx.putImageData(imageData, 0, 0);
 
-                pieces.push({
+                rowData.push({
                     canvas: canvas,
                     row: row,
                     col: col,
                     dataURL: canvas.toDataURL()
                 });
             }
+
+            pieces.push(rowData);
         }
         return pieces;
     }
