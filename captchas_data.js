@@ -27,4 +27,23 @@ export const captchasData = [
         message_intermission_correct: "Great, you see the big picture",
         message_intermission_trap: "But did you see the gorilla?",
     },
+    {
+        imagePath: 'assets/metro2.jpg',
+        rows: 4,
+        cols: 4,
+        prompt1: 'Select all squares with',
+        prompt2: 'free seats',
+        selected_correct: [
+            [0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0],
+            [0,0,0,0],
+        ],
+        unselected_correct: [],
+        selected_trap: [],
+        unselected_trap: [],
+        attribution: "Own work",
+        message_intermission_correct: "Great, you understand social distancing",
+        message_intermission_trap: "Huh, give us some personal space!",
+    },
 ];
