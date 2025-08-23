@@ -1,11 +1,11 @@
 export class Splitter {
-    static async splitImage(imagePath, rows=3, cols=3) {
+    static async splitImage(imagePath, rows, cols) {
         // Wait for image to load
         const image = await Splitter.loadImage(imagePath);
-        
+
         const pieceWidth = Math.floor(image.width / cols);
         const pieceHeight = Math.floor(image.height / rows);
-        
+
         // Create source canvas
         const sourceCanvas = document.createElement('canvas');
         const sourceCtx = sourceCanvas.getContext('2d');
@@ -14,7 +14,7 @@ export class Splitter {
         sourceCtx.drawImage(image, 0, 0);
 
         const pieces = [];
-        
+
         for (let row = 0; row < rows; row++) {
             const rowData = [];
 
@@ -26,9 +26,9 @@ export class Splitter {
 
                 // Extract piece using getImageData
                 const imageData = sourceCtx.getImageData(
-                    col * pieceWidth, 
-                    row * pieceHeight, 
-                    pieceWidth, 
+                    col * pieceWidth,
+                    row * pieceHeight,
+                    pieceWidth,
                     pieceHeight
                 );
                 ctx.putImageData(imageData, 0, 0);
@@ -50,17 +50,17 @@ export class Splitter {
     static loadImage(imagePath) {
         return new Promise((resolve, reject) => {
             const image = new Image();
-            
+
             image.onload = () => {
                 console.log(`Image loaded successfully: ${image.width}x${image.height}`);
                 resolve(image);
             };
-            
+
             image.onerror = (error) => {
                 console.error('Failed to load image:', imagePath);
                 reject(new Error(`Failed to load image: ${imagePath}`));
             };
-            
+
             // Set crossOrigin for external images
             image.crossOrigin = 'anonymous';
             image.src = imagePath;
