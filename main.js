@@ -69,13 +69,42 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     document.getElementById("button-submit").addEventListener("click", (e) => {
         const data = captchasData[state]
-        document.getElementById("message-intermission").innerText = data.message_intermission_correct
+        let pass = true
+        let trap = true
+        for (var i_row = 0; i_row < data.rows; i_row++) {
+            for (let i_column = 0; i_column < data.cols; i_column++) {
+                if (data.selected_correct[i_row][i_column]) {
+                    pass &= state_selection[i_row][i_column]
+                }
+                if (data.selected_trap[i_row][i_column]) {
+                    trap &= state_selection[i_row][i_column]
+                }
+
+                if (data.unselected_correct[i_row][i_column]) {
+                    pass &= !state_selection[i_row][i_column]
+                }
+                if (data.unselected_trap[i_row][i_column]) {
+                    trap &= !state_selection[i_row][i_column]
+                }
+
+            }
+        }
+        var message_intermission = "Incorrect selection"
+        if (pass) {
+            document.getElementById("button-next").removeAttribute("hidden")
+            message_intermission = data.message_intermission_correct
+        } else {
+            document.getElementById("button-next").setAttribute("hidden", true)
+            if (trap) {
+                message_intermission = data.message_intermission_trap
+            }
+        }
+        document.getElementById("message-intermission").innerText = message_intermission
         document.getElementById("captcha-view").setAttribute("hidden", true)
         document.getElementById("intermission-view").removeAttribute("hidden")
     })
 
     document.getElementById("button-retry").addEventListener("click", (e) => {
-        reset_selection()
         document.getElementById("captcha-view").removeAttribute("hidden")
         document.getElementById("intermission-view").setAttribute("hidden", true)
     })
