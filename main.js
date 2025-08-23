@@ -1,9 +1,9 @@
 import { Splitter } from './image_utils.js';
 
 // DEBUG: attach Splitter to the global window object for testing
-window.Splitter = Splitter;  
+window.Splitter = Splitter;
 
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', async function () {
     const captchaContainer = document.getElementById('captcha-container');
 
     await Splitter.splitImage('assets/scandalous.jpg', 3, 3)
@@ -22,11 +22,28 @@ document.addEventListener('DOMContentLoaded', async function() {
                         // TODO: Handle piece click
                         // For now, just log the piece's position
                         console.log(`Clicked on piece at row ${piece.row}, col ${piece.col}`);
-                        
+
                         img.classList.toggle('selected');
                     });
                 }
                 captchaContainer.appendChild(rowDiv);
             }
         });
+
+
+    document.getElementById("button-submit").addEventListener("click", (e) => {
+        document.getElementById("captcha-view").setAttribute("hidden", true)
+        document.getElementById("intermission-view").removeAttribute("hidden")
+    })
+
+    document.getElementById("button-retry").addEventListener("click", (e) => {
+        document.getElementById("captcha-view").removeAttribute("hidden")
+        document.getElementById("intermission-view").setAttribute("hidden", true)
+    })
+
+    document.getElementById("button-next").addEventListener("click", (e) => {
+        document.getElementById("intermission-view").setAttribute("hidden", true)
+        document.getElementById("reward-view").removeAttribute("hidden")
+    })
+
 });

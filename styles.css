@@ -7,6 +7,10 @@ div {
     margin: auto;
 }
 
+.view {
+    width: 25%;
+}
+
 #captcha-header {
     width: auto;
     text-align: left;
@@ -20,9 +24,6 @@ div {
     font-weight: bolder;
 }
 
-#captcha-view {
-    width: 50%;
-}
 
 .captcha-row {
     display: grid;
@@ -48,7 +49,7 @@ div {
 }
 
 
-#captcha-footer {
+.row {
     display: flex;
     align-items: start;
 }
@@ -57,11 +58,12 @@ div {
     flex-grow: 1;
 }
 
-#button-submit {
+button {
     background-color: #4b90de;
     color: white;
     border-color: #4b90de;
     font-size: 150%;
     padding: 0.5em 1em;
     cursor: pointer;
+    margin-left: 0.5em;
 }
