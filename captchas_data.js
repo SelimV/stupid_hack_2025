@@ -78,7 +78,7 @@ export const captchasData = [
         [0, 0, 0, 0],
         ],
         attribution: "Own work – Yunseon and Konsta",
-        message_intermission_correct: "Great, you understand social distancing",
+        message_intermission_correct: "Great, you understand Finnish culture",
         message_intermission_trap: "Huh, give us some personal space!",
     },
 ];
