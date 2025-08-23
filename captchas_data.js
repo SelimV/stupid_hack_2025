@@ -46,10 +46,15 @@ export const captchasData = [
             [0,0,0,0],
             [0,0,0,0],
             [0,0,0,0],
-            [0,0,0,0],
+            [0,0,0,0]
         ],
         unselected_correct: [],
-        selected_trap: [],
+        selected_trap: [
+            [0,1,1,1],
+            [0,1,1,1],
+            [0,0,0,0],
+            [1,1,1,1]
+        ],
         unselected_trap: [],
         attribution: "Own work – Yunseon and Konsta",
         message_intermission_correct: "Great, you understand social distancing",
