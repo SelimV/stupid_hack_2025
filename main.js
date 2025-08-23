@@ -7,6 +7,13 @@ window.Splitter = Splitter;
 document.addEventListener('DOMContentLoaded', async function () {
 
     var state = 0
+    var state_selection = []
+
+    function reset_selection() {
+        const data = captchasData[state]
+        state_selection = Array(data.rows).fill().map(() => Array(data.cols).fill(0))
+    }
+
     async function load_captcha() {
         const captchaContainer = document.getElementById('captcha-container');
 
@@ -38,6 +45,9 @@ document.addEventListener('DOMContentLoaded', async function () {
                             // For now, just log the piece's position
                             console.log(`Clicked on piece at row ${piece.row}, col ${piece.col}`);
 
+                            // Toggle
+                            state_selection[piece.row][piece.col] ^= true
+
                             img.classList.toggle('selected');
                         });
                     }
@@ -46,7 +56,14 @@ document.addEventListener('DOMContentLoaded', async function () {
             });
     }
 
+    document.getElementById("button-log-selection").addEventListener("click", (e) => {
+        var selection_string = "["
+        for (const row of state_selection) {
+            selection_string += "[" + String(row) + "],"
+        }
 
+        console.log(selection_string + "]")
+    })
 
     document.getElementById("button-submit").addEventListener("click", (e) => {
         const data = captchasData[state]
@@ -56,6 +73,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     })
 
     document.getElementById("button-retry").addEventListener("click", (e) => {
+        reset_selection()
         document.getElementById("captcha-view").removeAttribute("hidden")
         document.getElementById("intermission-view").setAttribute("hidden", true)
     })
@@ -65,6 +83,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         if (state < captchasData.length) {
             document.getElementById("captcha-view").removeAttribute("hidden")
             document.getElementById("intermission-view").setAttribute("hidden", true)
+            reset_selection()
             await load_captcha()
         }
         else {
@@ -73,6 +92,7 @@ document.addEventListener('DOMContentLoaded', async function () {
         }
     })
 
+    reset_selection()
     await load_captcha()
 
 });
