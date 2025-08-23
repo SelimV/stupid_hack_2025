@@ -58,11 +58,13 @@ document.addEventListener('DOMContentLoaded', async function () {
 
     document.getElementById("button-log-selection").addEventListener("click", (e) => {
         var selection_string = "["
+        var unselection_string = "["
         for (const row of state_selection) {
-            selection_string += "[" + String(row) + "],"
+            selection_string += "[" + String(row) + "],\n"
+            unselection_string += "[" + String(row.map((cell) => cell ^ true)) + "],\n"
         }
 
-        console.log(selection_string + "]")
+        console.log("Selected:\n" + selection_string + "]\nUnselected:\n" + unselection_string + "]")
     })
 
     document.getElementById("button-submit").addEventListener("click", (e) => {
