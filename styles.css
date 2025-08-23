@@ -2,13 +2,11 @@ h1 {
     text-align: center;
 }
 
-div {
-    text-align: center;
-    margin: auto;
-}
 
 .view {
-    width: 25%;
+    width: 50%;
+    text-align: center;
+    margin: auto;
 }
 
 #captcha-header {
@@ -52,6 +50,11 @@ div {
 .row {
     display: flex;
     align-items: start;
+}
+
+.filler {
+    flex-grow: 1;
+    margin: auto;
 }
 
 #attribution-image {

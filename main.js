@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', async function () {
 
         const data = captchasData[state]
 
+        document.getElementById("captcha-prompt-verb").innerText = data.prompt1
+        document.getElementById("captcha-prompt").innerText = data.prompt2
+        document.getElementById("attribution-image").innerText = data.attribution
+
         await Splitter.splitImage(data.imagePath, data.rows, data.cols)
             .then(pieces => {
                 for (const pieceRow of pieces) {
@@ -45,6 +49,8 @@ document.addEventListener('DOMContentLoaded', async function () {
 
 
     document.getElementById("button-submit").addEventListener("click", (e) => {
+        const data = captchasData[state]
+        document.getElementById("message-intermission").innerText = data.message_intermission_correct
         document.getElementById("captcha-view").setAttribute("hidden", true)
         document.getElementById("intermission-view").removeAttribute("hidden")
     })

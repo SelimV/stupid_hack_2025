@@ -11,7 +11,7 @@
 <body>
   <div class="view" id="captcha-view">
     <div id="captcha-header">
-      Select
+      <div id="captcha-prompt-verb">Select</div>
       <h1 id="captcha-prompt">a lever</h1>
       then click submit
     </div>
@@ -24,8 +24,8 @@
 
   <div class="view" id="intermission-view" hidden>
     <h1 id="message-intermission">Captcha submitted</h1>
-    <div class=row>
-      <div flex-grow="1"></div>
+    <div class="row">
+      <div class="filler"></div>
       <button id="button-retry">Retry</button>
       <button id="button-next">Next</button>
     </div>
